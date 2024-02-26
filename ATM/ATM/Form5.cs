@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Windows.Forms;
 using static System.Windows.Forms.LinkLabel;
@@ -71,7 +71,8 @@ namespace ATM
         {
             if (ShowMessage())
             {
-                BakiyeGuncelle2(textBox2.Text);
+                //int a = int.Parse(textBox2.Text);
+                BakiyeGuncelle2(textBox1.Text);
             }
         }
 
@@ -150,15 +151,15 @@ namespace ATM
                                 {
                                     int yeniBakiye = c - b;
                                     bilgiler[7] = yeniBakiye.ToString();
+                                    // Dosyayı güncellemek için yaz
+                                    writer.WriteLine(string.Join(",", bilgiler));
+                                    
                                 }
-                                
+
                             }
-                            // Dosyayı güncellemek için yaz
-                            writer.WriteLine(string.Join(",", bilgiler));
+                            
                         }
-                        reader.Close();
                     }
-                    writer.Close();
                 }
                 FillBlank2(tcNo1);
             }
@@ -168,6 +169,7 @@ namespace ATM
                 return;
             }
         }
+
 
 
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
